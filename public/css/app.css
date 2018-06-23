@@ -10412,6 +10412,10 @@ a.text-dark:focus {
 }
 
 .container {
-  margin-top: 60px;
+  padding-top: 60px;
+}
+
+.card-deck {
+  padding-top: 20px;
 }
 

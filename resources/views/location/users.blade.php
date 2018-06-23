@@ -3,24 +3,22 @@
 @section('title', 'Users')
 
 @section('content')
-    <table class="table">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">Full name</th>
-      <th scope="col">E-mail</th>
-    </tr>
-  </thead>
-  <tbody>
-    @foreach ($users as $user)
-        <tr>
-            <th scope="row">
-                <a href="#"> {{ $user->id }} </a>
-            </th>
-            <td> {{ $user->firstName }} {{ $user->lastName }} </td>
-            <td> {{ $user->email }} </td>
-        </tr>
-    @endforeach
-  </tbody>
-</table>
+    <div class="row">
+        @foreach ($users as $user)
+            <div class="card-deck col-sm-4 col-xs-12">
+                <div class="card">
+                    <a href="#">
+                        <img class="card-img-top" src="{{ $user->photo }}" alt="{{ $user->firstName }} {{ $user->lastName }}">
+                    </a>
+                    <div class="card-body">
+                        <h5 class="card-title">{{ $user->firstName }} {{ $user->lastName }}</h5>
+                        <p class="card-text">ID: {{ $user->id }}</p>
+                        <p class="card-text">E-mail: {{ $user->email }}</p>
+                        <a href="#" class="btn btn-primary">Time punches</a>
+                    </div>
+                </div>
+            </div>
+        @endforeach
+    </div>
+
 @endsection
