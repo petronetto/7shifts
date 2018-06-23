@@ -2,10 +2,6 @@
 
 use Tests\Mocks\LocationData;
 
-Route::get('/', 'Home\HomeController@index');
+Route::get('/', 'HomeController@index')->name('home');
 
-Route::get('/test', function () {
-    $data = (new LocationData())->get();
-
-    dd(json_decode($data));
-});
+Route::get('/location/{locationId}/users', 'HomeController@getUsers')->name('location.users');

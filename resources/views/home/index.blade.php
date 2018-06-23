@@ -16,7 +16,7 @@
     @foreach ($locations as $location)
         <tr>
             <th scope="row">
-                <a href="#"> {{ $location->id }} </a>
+            <a href="{{ route('location.users', ['locationId' => $location->id]) }}"> {{ $location->id }} </a>
             </th>
             <td> {{ $location->address }} </td>
             <td> {{ $location->labourSettings->dailyOvertimeThreshold }} </td>

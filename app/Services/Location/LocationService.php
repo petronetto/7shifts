@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Services;
+namespace App\Services\Location;
 
+use App\Services\Service;
 use GuzzleHttp\Client;
 
 class LocationService extends Service
@@ -21,5 +22,19 @@ class LocationService extends Service
         $response = $this->http->get('https://shiftstestapi.firebaseio.com/locations.json');
 
         return json_decode($response->getBody());
+    }
+
+    public function getUsers(string $locationId)
+    {
+        // Same observation as getLocations
+        $response = $this->http->get('https://shiftstestapi.firebaseio.com/users.json');
+
+        $users = json_decode($response->getBody());
+
+        if (property_exists($users, $locationId)) {
+            return $users->{$locationId};
+        }
+
+        return abort(404);
     }
 }

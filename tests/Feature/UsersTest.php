@@ -13,7 +13,7 @@ class UsersTest extends TestCase
      */
     public function testIndex()
     {
-        $response = $this->get('/users');
+        $response = $this->get('/location/25753/users');
 
         $response->assertStatus(200);
     }
