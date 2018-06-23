@@ -32,7 +32,7 @@ Location settings have overtime starting at 8 hours daily, or 40 hours weekly. (
 When the data has been processed, list the users in a sortable JavaScript table by user, and show their worked hours, and overtime hours, profile picture
 
 ## Bonus 2
-Use the following end point (link here) to pull in sales information for a given location
+Use the following end point (https://shiftstestapi.firebaseio.com/receipts.json) to pull in sales information for a given location
 
 Calculate the sales for a given location by adding all the sales receipts together
 
