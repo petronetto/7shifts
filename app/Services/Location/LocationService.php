@@ -37,4 +37,28 @@ class LocationService extends Service
 
         return abort(404);
     }
+
+    public function getTimePunches(string $userId)
+    {
+        // Same observation as getLocations
+        $response = $this->http->get('https://shiftstestapi.firebaseio.com/timePunches.json');
+
+        $times = json_decode($response->getBody());
+
+        $data = [];
+
+        foreach ($times as $t) {
+            $weekNum = (int) (new \DateTime($t->clockedIn))->format("W");
+            $diff = strtotime($t->clockedOut) - strtotime($t->clockedIn);
+            $data[$t->userId][$weekNum][] = [
+                'clockedIn'  => $t->clockedIn,
+                'clockedOut' => $t->clockedOut,
+                'total' => round($diff/60/60, 2),
+            ];
+        }
+
+        dd($data);
+
+        return abort(404);
+    }
 }

@@ -27,4 +27,13 @@ class HomeController extends Controller
 
         return view('location.users', ['users' => $users]);
     }
+
+    public function getTimePunches(string $userId)
+    {
+        $data = $this->service->getTimePunches($userId);
+
+        dd($data);
+
+        return view('location.users', ['users' => $users]);
+    }
 }

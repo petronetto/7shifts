@@ -14,7 +14,7 @@
                         <h5 class="card-title">{{ $user->firstName }} {{ $user->lastName }}</h5>
                         <p class="card-text">ID: {{ $user->id }}</p>
                         <p class="card-text">E-mail: {{ $user->email }}</p>
-                        <a href="#" class="btn btn-primary">Time punches</a>
+                        <a href="{{ route('user.times', ['userId' => $user->id]) }}" class="btn btn-primary">Time punches</a>
                     </div>
                 </div>
             </div>
