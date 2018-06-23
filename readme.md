@@ -1,3 +1,7 @@
 # 7shifts
 
-To run `composer install` after `php artisan server`
+To run do:
+- `composer install`
+- `npm install`
+- `npm run dev`
+- `php artisan server`
